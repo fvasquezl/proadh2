@@ -24,21 +24,43 @@
                         </div>
                         <div class="card-body">
                             <p class="card-description text-center">{{ __('Enter your credentials')  }}</p>
-                            <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+{{--                            <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }}">--}}
+{{--                                <div class="input-group">--}}
+{{--                                    <div class="input-group-prepend">--}}
+{{--                                      <span class="input-group-text">--}}
+{{--                                        <i class="material-icons">email</i>--}}
+{{--                                      </span>--}}
+{{--                                    </div>--}}
+{{--                                    <input type="email" name="email" class="form-control"--}}
+{{--                                           placeholder="{{ __('Email...') }}"--}}
+{{--                                           value="{{ old('email',null) }}" required autocomplete="email" autofocus>--}}
+{{--                                </div>--}}
+{{--                                @if ($errors->has('email'))--}}
+{{--                                    <div id="email-error" class="error text-danger pl-3" for="email"--}}
+{{--                                         style="display: block;">--}}
+{{--                                        <strong>{{ $errors->first('email') }}</strong>--}}
+{{--                                    </div>--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
+{{--                        {{-- username--}}
+                            <div class="bmd-form-group{{ $errors->has('username') ? ' has-danger' : '' }}">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                       <span class="input-group-text">
-                                        <i class="material-icons">email</i>
+                                        <i class="material-icons">face</i>
                                       </span>
                                     </div>
-                                    <input type="email" name="email" class="form-control"
-                                           placeholder="{{ __('Email...') }}"
-                                           value="{{ old('email',null) }}" required autocomplete="email" autofocus>
+                                    <input type="text" name="username" class="form-control"
+                                           placeholder="{{ __('Username/Email...') }}"
+                                           value="{{ old('username',null) }}"
+                                           required autocomplete="username"
+                                           autofocus
+                                    >
                                 </div>
-                                @if ($errors->has('email'))
-                                    <div id="email-error" class="error text-danger pl-3" for="email"
+                                @if ($errors->has('username'))
+                                    <div id="username-error" class="error text-danger pl-3" for="username"
                                          style="display: block;">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </div>
                                 @endif
                             </div>
