@@ -1,4 +1,4 @@
-@extends('layouts.master', ['activePage' => 'dashboard', 'titlePage' => env('APP_NAME')])
+@extends('layouts.main')
 
 @section('content')
     <div class="content">

@@ -10,7 +10,8 @@ try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
 
-    require('bootstrap');
+    require('admin-lte/dist/js/adminlte.min');
+    require('admin-lte');
 } catch (e) {}
 
 /**
