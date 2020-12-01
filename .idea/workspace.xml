@@ -1,7 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3eca3a49-82f1-427c-b059-8f7c467cd23c" name="Default Changelist" comment="" />
+    <list default="true" id="3eca3a49-82f1-427c-b059-8f7c467cd23c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/img/book.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/correo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/correo_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/departamento.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/details_close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/details_open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/parking.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/password.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/present.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/user1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/user2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/user3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/user4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/user5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/proadh2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/proadh2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/material-dashboard-rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/material-dashboard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/material-dashboard.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/material-dashboard.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/Macbook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/angular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/apple-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/cover.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/ex1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/ex2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/ex3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/faces/avatar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/faces/card-profile1-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/faces/card-profile2-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/faces/marc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/html.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/iPad2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/imac1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/ipad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/iphonex.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/laravel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/login.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/mask.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/new_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/notification.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/react.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/sidebar-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/sidebar-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/sidebar-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/sidebar-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/table.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/vue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/core/bootstrap-material-design.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/core/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/core/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/material-dashboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/material-dashboard.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/material-dashboard.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins/perfect-scrollbar.jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/settings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/footers/auth.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/footers/guest.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbars/navs/_navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbars/navs/_navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbars/navs/auth.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbars/navs/guest.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbars/sidebar.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/page_templates/auth.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/page_templates/guest.blade.php" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,6 +221,7 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kzXhTOL7ncjqNdkUJ8EQxV3UoV" />
@@ -140,10 +235,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="php.test.frameworks.configurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
