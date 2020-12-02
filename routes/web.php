@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CarController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::prefix('admin')
+    ->namespace('Admin')->middleware('auth')
+    ->group(function(){
+    Route::get('cars', [CarController::class, 'index'])->name('car.index');
+});
+
+
