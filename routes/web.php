@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CarController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +25,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::prefix('admin')
     ->namespace('Admin')->middleware('auth')
     ->group(function(){
-    Route::get('cars', [CarController::class, 'index'])->name('car.index');
+    Route::get('cars', [CarController::class, 'index'])->name('admin.cars.index');
+    Route::get('users', [UserController::class, 'index'])->name('admin.users.index');
 });
 
 

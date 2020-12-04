@@ -8,7 +8,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                    <li class="breadcrumb-item active">Cars</li>
+                    <li class="breadcrumb-item active">Users</li>
                     <li class="breadcrumb-item active">Index</li>
                 </ol>
             </div>
@@ -20,10 +20,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card card-outline card-success">
+                <div class="card card-outline card-primary">
                     <!-- /.card-header -->
                     <div class="card-body">
-                        {!! $dataTable->table(['class' => 'table table-striped table-bordered table-hover', 'id' => 'UserTable']) !!}
+                        {!! $dataTable->table(['class' => 'table table-striped table-bordered table-hover', 'id' => 'CarTable']) !!}
                     </div>
                     <!-- /.card-body -->
                 </div>

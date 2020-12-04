@@ -1,32 +1,31 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
+use App\DataTables\UsersDataTable;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-
     /**
-     * @return Application|Factory|View
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UsersDataTable $dataTable)
     {
-        $user = User::get();
-        return view('users.index',compact('users'));
+        return $dataTable->render('admin.users.index');
     }
 
-
     /**
-     * @return Application|Factory|View
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('users.create');
+        //
     }
 
     /**
@@ -37,8 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::create($request->all());
-        return redirect()->back();
+        //
     }
 
     /**

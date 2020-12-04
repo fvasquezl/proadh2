@@ -14,6 +14,6 @@ class CarTableSeeder extends Seeder
      */
     public function run()
     {
-        Car::factory()->times(10)->create();
+        Car::factory()->times(100)->create();
     }
 }

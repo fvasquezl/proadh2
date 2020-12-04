@@ -46,39 +46,66 @@
                     </a>
                 </li>
 
-                <li class="nav-item menu-is-opening menu-open">
+                <li class="{{request()->is('admin/cars') ? 'nav-item menu-is-opening menu-open':'nav-item'}} ">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-car"></i>
                         <p>
-                            Car
+                            Cars
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview" style="display: block;">
+                    <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/mailbox/mailbox.html" class="nav-link">
-                                <i class="nav-icon fas fa-tasks"></i>
+                            <a href="{{route('admin.cars.index')}}"
+                               class="{{request()->is('admin/cars') ? 'nav-link active' : 'nav-link'}}">
+                                <i class="nav-icon fas fa-eye"></i>
                                 <p>All Cars</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/mailbox/compose.html" class="nav-link">
-                                <i class="nav-icon fas fa-folder-plus"></i>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-pen"></i>
                                 <p>Create New Car</p>
                             </a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="nav-item">
+                <li class="{{request()->is('admin/users') ? 'nav-item menu-is-opening menu-open':'nav-item'}} ">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Simple Link
-                            <span class="right badge badge-danger">New</span>
+                            Users
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.users.index')}}"
+                               class ="{{request()->is('admin/users') ? 'nav-link active' : 'nav-link'}}">
+                                <i class="nav-icon fas fa-eye"></i>
+                                <p>All Users</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Create New User</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
+
+{{--                <li class="nav-item">--}}
+{{--                    <a href="#" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-th"></i>--}}
+{{--                        <p>--}}
+{{--                            Simple Link--}}
+{{--                            <span class="right badge badge-danger">New</span>--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

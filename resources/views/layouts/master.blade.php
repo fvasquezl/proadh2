@@ -6,6 +6,7 @@
     <title>Proadh2 | AdminSystem</title>
 
     <!-- Theme style -->
+    @stack('styles')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
@@ -33,5 +34,7 @@
 
 <script src="{{ asset('js/app.js') }}"></script>
 @stack('scripts')
+
+@stack('modals')
 </body>
 </html>
