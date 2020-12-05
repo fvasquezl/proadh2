@@ -21,16 +21,11 @@ class UsersDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', function () {
-                return '<a href="javascript:void(0)" class="btn btn-info btn-xs">
-                            <i class="far fa-eye"></i>
-                        </a>
-                        <a href="javascript:void(0)" class="btn btn-primary btn-xs">
-                            <i class="fas fa-pen"></i>
-                        </a>
-                        <a href="javascript:void(0)" class="btn btn-danger btn-xs">
-                            <i class="fas fa-trash">
-                        </a>';
+            ->addColumn('roles',function ($data){
+                return $data->getRoleNames()->implode(', ');
+            })
+            ->addColumn('action',function ($data){
+                return $this->getActionColumn($data);
             });
     }
 
@@ -85,8 +80,7 @@ class UsersDataTable extends DataTable
             Column::make('name'),
             Column::make('username'),
             Column::make('email'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            Column::make('roles'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
@@ -103,5 +97,22 @@ class UsersDataTable extends DataTable
     protected function filename()
     {
         return 'Users_' . date('YmdHis');
+    }
+
+
+    public function getActionColumn($data):string
+    {
+        $showUrl = route('admin.users.show', $data->id);
+        $editUrl = route('admin.users.edit', $data->id);
+
+        return "<a data-value='$data->id' href='$showUrl' class='btn btn-info btn-xs'>
+                    <i class='far fa-eye'></i>
+                 </a>
+                 <a data-value='$data->id' href='$editUrl' class='btn btn-primary btn-xs'>
+                    <i class='fas fa-pen'></i>
+                 </a>
+                 <button class='btn btn-danger btn-xs' data-value='$data->id' >
+                    <i class='fas fa-trash'>
+                 </button>";
     }
 }

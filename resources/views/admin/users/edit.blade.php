@@ -21,7 +21,7 @@
         <div class="col-md-6">
             <form autocomplete="off" method="post" action="{{route('admin.users.store')}}">
                 @csrf
-               @include('admin.users.form')
+                @include('admin.users.form',['user'=>$user])
             </form>
         </div>
     </div>

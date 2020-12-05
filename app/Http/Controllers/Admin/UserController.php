@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\DataTables\UsersDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SaveUserRequest;
+use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -28,49 +29,52 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', new User());
         return view('admin.users.create');
     }
 
 
     public function store(SaveUserRequest $request)
     {
+        $this->authorize('create', new User);
+
         $request->createUser();
 
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function edit($id)
+    public function show(User $user)
     {
-        //
+        $this->authorize('update', $user);
     }
 
+
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @return Application|Factory|View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function update(Request $request, $id)
+    public function edit(User $user)
     {
-        //
+        $this->authorize('update', $user);
+
+        return view('admin.users.edit',$user);
+    }
+
+
+    /**
+     * @param Request $request
+     * @param User $user
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function update(Request $request, User $user)
+    {
+        $this->authorize('update',$user);
     }
 
     /**
@@ -81,6 +85,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->authorize('delete', new User);
     }
 }
