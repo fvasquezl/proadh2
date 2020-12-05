@@ -42,7 +42,9 @@ class CarsDataTable extends DataTable
      */
     public function query(Car $model)
     {
-        return $model->newQuery();
+
+        return $model->allowed()->newQuery();
+
     }
 
     /**

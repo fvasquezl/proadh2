@@ -38,7 +38,8 @@ class CarPolicy
      */
     public function view(User $user, Car $car)
     {
-        //
+        return $user->id === $car->user_id
+            || $user->hasPermissionTo('View cars');
     }
 
     /**
@@ -49,7 +50,7 @@ class CarPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->hasPermissionTo('Create cars');
     }
 
     /**
@@ -61,7 +62,8 @@ class CarPolicy
      */
     public function update(User $user, Car $car)
     {
-        //
+        return $user->id === $car->user_id
+            || $user->hasPermissionTo('Update cars');
     }
 
     /**
@@ -73,7 +75,8 @@ class CarPolicy
      */
     public function delete(User $user, Car $car)
     {
-        //
+        return $user->id === $car->user_id
+            || $user->hasPermissionTo('Delete cars');
     }
 
     /**

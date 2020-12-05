@@ -124,7 +124,8 @@
 
                     <p>
                         {{auth()->user()->name}}
-                        <small>Member since {{auth()->user()->created_at}}</small>
+                        <small>Since {{auth()->user()->created_at->format('d/M/Y')}}</small>
+                        <small> {{auth()->user()->roles()->first()->name}}</small>
                     </p>
                 </li>
                 <!-- Menu Footer-->

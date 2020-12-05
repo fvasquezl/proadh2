@@ -13,6 +13,17 @@ class Car extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeAllowed($query)
+    {
+        if (auth()->user()->can('View',$this))
+        {
+           return $query;
+        }
+
+        return $query->where('user_id',auth()->id());
+
+    }
 }
 
 

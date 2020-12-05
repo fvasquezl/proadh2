@@ -22,12 +22,14 @@ class UserTableSeeder extends Seeder
         $clientRole = Role::create(['name'=>'client']);
 
         $viewCarsPermissions = Permission::create(['name'=> 'View cars']);
+        $createCarsPermissions = Permission::create(['name'=> 'Create cars']);
+        $updateCarsPermissions = Permission::create(['name'=> 'Update cars']);
+        $deleteCarsPermissions = Permission::create(['name'=> 'Delete cars']);
 
         $admin = User::factory()->create([
             'name' => 'Faustino Vasquez Limon',
             'username' => 'fvasquez',
             'email' => 'admin@local.com',
-            'password' =>  bcrypt('password')
         ]);
         $admin->assignRole($adminRole);
 
@@ -35,7 +37,6 @@ class UserTableSeeder extends Seeder
             'name' => 'Jaime Aguilar',
             'username' => 'jaguilar',
             'email' => 'jaguilar@local.com',
-            'password' =>  bcrypt('password')
         ]);
         $manager->assignRole($managerRole);
 
@@ -43,27 +44,26 @@ class UserTableSeeder extends Seeder
             'name' => 'Juan Perez',
             'username' => 'Juan Perez',
             'email' => 'jperez@local.com',
-            'password' => bcrypt('password')
         ]);
         $employee->assignRole($employeeRole);
 
         $client1 = User::factory()->create([
-            'name' => 'client1',
+            'username' => 'client1',
         ]);
         $client1->assignRole($clientRole);
 
         $client2 = User::factory()->create([
-            'name' => 'client2',
+            'username' => 'client2',
         ]);
         $client2->assignRole($clientRole);
 
         $client3 = User::factory()->create([
-            'name' => 'client3',
+            'username' => 'client3',
         ]);
         $client3->assignRole($clientRole);
 
         $client4 = User::factory()->create([
-            'name' => 'client4',
+            'username' => 'client4',
         ]);
         $client4->assignRole($clientRole);
 
