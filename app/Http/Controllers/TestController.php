@@ -1,42 +1,40 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\DataTables\UsersDataTable;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\SaveUserRequest;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class TestController extends Controller
 {
-
     /**
-     * @param UsersDataTable $dataTable
-     * @return mixed
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function index(UsersDataTable $dataTable)
+    public function index()
     {
-        return $dataTable->render('admin.users.index');
+        //
     }
 
-
     /**
-     * @return Application|Factory|View
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('admin.users.create');
+        //
     }
 
-
-    public function store(SaveUserRequest $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        $request->createUser();
-
-        return redirect()->back();
+        //
     }
 
     /**

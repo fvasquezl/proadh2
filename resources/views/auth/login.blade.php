@@ -9,7 +9,7 @@
 
                 <form class="form" method="POST" action="{{ route('login') }}">
                     @csrf
-                    <div class="input-group{{ $errors->has('username') ? ' has-danger' : '' }} mb-3">
+                    <div class="input-group{{ $errors->has('username') ? ' is-invalid' : '' }} mb-3">
                         <input type="text" name="username" class="form-control"
                                placeholder="{{ __('Username/Email...') }}"
                                value="{{ old('username',null) }}"
@@ -28,7 +28,7 @@
                             </div>
                         @endif
                     </div>
-                    <div class="input-group{{ $errors->has('password') ? ' has-danger' : '' }}">
+                    <div class="input-group{{ $errors->has('password') ? ' is-invalid' : '' }}">
 
                         <input type="password" name="password" id="password" class="form-control"
                                placeholder="{{ __('Password...') }}"

@@ -18,6 +18,7 @@ class CreateCarsTable extends Migration
             $table->string('brand');
             $table->string('model');
             $table->mediumText('details');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

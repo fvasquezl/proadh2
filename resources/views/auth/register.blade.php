@@ -8,7 +8,7 @@
 
             <form class="form" method="POST" action="{{ route('register') }}">
                 @csrf
-                <div class="input-group {{ $errors->has('name') ? ' has-danger' : '' }} mb-3">
+                <div class="input-group {{ $errors->has('name') ? ' is-invalid' : '' }} mb-3">
                     <input type="text" name="name" class="form-control"
                            placeholder="{{ __('Name...') }}"
                            value="{{ old('name') }}"
@@ -28,7 +28,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="input-group {{ $errors->has('username') ? ' has-danger' : '' }} mb-3">
+                <div class="input-group {{ $errors->has('username') ? ' is-invalid' : '' }} mb-3">
                     <input type="text" name="username" class="form-control"
                            placeholder="{{ __('Username...') }}"
                            value="{{ old('username') }}"
@@ -45,7 +45,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="input-group {{ $errors->has('email') ? ' has-danger' : '' }} mb-3">
+                <div class="input-group {{ $errors->has('email') ? ' is-invalid' : '' }} mb-3">
                     <input type="email" name="email" class="form-control"
                            placeholder="{{ __('Email...') }}"
                            value="{{ old('email') }}"
@@ -65,7 +65,7 @@
                     @endif
                 </div>
 
-                <div class="input-group {{ $errors->has('password') ? ' has-danger' : '' }}mb-3">
+                <div class="input-group {{ $errors->has('password') ? ' is-invalid' : '' }}mb-3">
                     <input type="password" name="password" id="password" class="form-control"
                            placeholder="{{ __('Password...') }}"
                            required
@@ -83,7 +83,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="input-group {{ $errors->has('password_confirmation') ? ' has-danger' : '' }} mb-3">
+                <div class="input-group {{ $errors->has('password_confirmation') ? ' is-invalid' : '' }} mb-3">
                     <input type="password" name="password_confirmation" id="password_confirmation"
                            class="form-control" placeholder="{{ __('Confirm Password...') }}" required
                            autocomplete="new-password">

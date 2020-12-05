@@ -46,7 +46,7 @@
                     </a>
                 </li>
 
-                <li class="{{request()->is('admin/cars') ? 'nav-item menu-is-opening menu-open':'nav-item'}} ">
+                <li class="{{request()->is('admin/cars*') ? 'nav-item menu-is-opening menu-open':'nav-item'}} ">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-car"></i>
                         <p>
@@ -63,7 +63,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.cars.create')}}"
+                               class="{{request()->is('admin/cars/create') ? 'nav-link active' : 'nav-link'}}">
                                 <i class="nav-icon fas fa-pen"></i>
                                 <p>Create New Car</p>
                             </a>
@@ -71,7 +72,7 @@
                     </ul>
                 </li>
 
-                <li class="{{request()->is('admin/users') ? 'nav-item menu-is-opening menu-open':'nav-item'}} ">
+                <li class="{{request()->is('admin/users*') ? 'nav-item menu-is-opening menu-open':'nav-item'}} ">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
@@ -88,7 +89,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.users.create')}}"
+                               class ="{{request()->is('admin/users/create') ? 'nav-link active' : 'nav-link'}}">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>Create New User</p>
                             </a>

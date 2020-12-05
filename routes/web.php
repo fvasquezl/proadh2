@@ -23,10 +23,12 @@ Route::get('/', function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')
-    ->namespace('Admin')->middleware('auth')
+    ->name('admin.')
+    ->middleware('auth')
     ->group(function(){
-    Route::get('cars', [CarController::class, 'index'])->name('admin.cars.index');
-    Route::get('users', [UserController::class, 'index'])->name('admin.users.index');
+         Route::resource('cars', CarController::class);
+         Route::resource('users', UserController::class);
+      // Route::get('users', [UserController::class, 'index'])->name('admin.users.index');
 });
 
 
