@@ -54,7 +54,8 @@ class UsersDataTable extends DataTable
             ->lengthMenu([[10, 25, 50, 100, -1], [10, 25, 50, 100, 'All']])
             ->minifiedAjax()
             ->dom("<'row'<'col-md-6'B><'col-md-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-12 col-md-5'i ><'col-sm-12 col-md-7'p>>")
-            ->orderBy(1)
+            ->orderBy(0,'desc')
+
             ->buttons(
                 Button::make('excel')
                     ->addClass('btn-success')
