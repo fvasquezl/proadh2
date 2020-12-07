@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
         $adminRole = Role::create(['name'=>'Admin']);
         $managerRole = Role::create(['name'=>'Manager']);
         $employeeRole = Role::create(['name'=>'Employee']);
-        $clientRole = Role::create(['name'=>'client']);
+        $clientRole = Role::create(['name'=>'Client']);
 
         $viewCarsPermissions = Permission::create(['name'=> 'View cars']);
         $createCarsPermissions = Permission::create(['name'=> 'Create cars']);

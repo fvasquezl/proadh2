@@ -22,7 +22,7 @@
             <form autocomplete="off" method="post" action="{{route('admin.users.store')}}">
                 @csrf
                 <div class="card card-outline card-primary">
-                    <div class="card-header"><h4>Add Users</h4></div>
+                    <div class="card-header"><h4>Create New Car</h4></div>
                     <div class="card-body">
                         <div class="form-group">
                             <label class="form-control-label" for="brand">Brand</label>
