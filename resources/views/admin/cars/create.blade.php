@@ -64,7 +64,7 @@
                                 </span>
                             @endif
                         </div>
-
+  
                     </div>
                     <div class="card-footer">
                         <div class="form-group">

@@ -21,6 +21,7 @@ class UserTableSeeder extends Seeder
         $employeeRole = Role::create(['name'=>'Employee']);
         $clientRole = Role::create(['name'=>'Client']);
 
+
         $viewCarsPermissions = Permission::create(['name'=> 'View cars']);
         $createCarsPermissions = Permission::create(['name'=> 'Create cars']);
         $updateCarsPermissions = Permission::create(['name'=> 'Update cars']);
@@ -50,6 +51,7 @@ class UserTableSeeder extends Seeder
         $client1 = User::factory()->create([
             'username' => 'client1',
         ]);
+
         $client1->assignRole($clientRole);
 
         $client2 = User::factory()->create([

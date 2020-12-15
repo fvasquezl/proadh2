@@ -6,10 +6,13 @@ use App\DataTables\UsersDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SaveUserRequest;
 use App\Models\User;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -46,7 +49,7 @@ class UserController extends Controller
 
     /**
      * @param User $user
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws AuthorizationException
      */
     public function show(User $user)
     {
@@ -58,24 +61,31 @@ class UserController extends Controller
     /**
      * @param User $user
      * @return Application|Factory|View
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws AuthorizationException
      */
     public function edit(User $user)
     {
         $this->authorize('update', $user);
 
-        return view('admin.users.edit',$user);
+        $roles = Role::with('permissions')->get();
+        $permissions = Permission::pluck('name','id');
+        return view('admin.users.edit',compact('user','roles','permissions'));
     }
 
 
     /**
-     * @param Request $request
+     * @param SaveUserRequest $request
      * @param User $user
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @return mixed
+     * @throws AuthorizationException
      */
-    public function update(Request $request, User $user)
+    public function update(SaveUserRequest $request, User $user)
     {
         $this->authorize('update',$user);
+
+        $request->updateUser($user);
+
+        return redirect()->back()->with('status','Users updated successfully');
     }
 
     /**

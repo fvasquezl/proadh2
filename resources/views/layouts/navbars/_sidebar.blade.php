@@ -18,18 +18,6 @@
             </div>
         </div>
 
-{{--        <!-- SidebarSearch Form -->--}}
-{{--        <div class="form-inline">--}}
-{{--            <div class="input-group" data-widget="sidebar-search">--}}
-{{--                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">--}}
-{{--                <div class="input-group-append">--}}
-{{--                    <button class="btn btn-sidebar">--}}
-{{--                        <i class="fas fa-search fa-fw"></i>--}}
-{{--                    </button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -38,7 +26,7 @@
                 <li class="nav-header">OPTIONS</li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('home')}}" class="{{setActiveRoute('home')}}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -46,7 +34,7 @@
                     </a>
                 </li>
 
-                <li class="{{request()->is('admin/cars*') ? 'nav-item menu-is-opening menu-open':'nav-item'}} ">
+                <li class="{{setOpenMenu(['admin.cars.index','admin.cars.create'])}}  ">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-car"></i>
                         <p>
@@ -57,14 +45,14 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{route('admin.cars.index')}}"
-                               class="{{request()->is('admin/cars') ? 'nav-link active' : 'nav-link'}}">
+                               class="{{setActiveRoute('admin.cars.index')}}">
                                 <i class="nav-icon fas fa-eye"></i>
                                 <p>All Cars</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin.cars.create')}}"
-                               class="{{request()->is('admin/cars/create') ? 'nav-link active' : 'nav-link'}}">
+                               class="{{setActiveRoute('admin.cars.create')}}">
                                 <i class="nav-icon fas fa-pen"></i>
                                 <p>Create New Car</p>
                             </a>
@@ -72,7 +60,7 @@
                     </ul>
                 </li>
 
-                <li class="{{request()->is('admin/users*') ? 'nav-item menu-is-opening menu-open':'nav-item'}} ">
+                <li class="{{setOpenMenu(['admin.users.index','admin.users.create'])}} ">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
@@ -83,14 +71,14 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{route('admin.users.index')}}"
-                               class ="{{request()->is('admin/users') ? 'nav-link active' : 'nav-link'}}">
+                               class ="{{setActiveRoute('admin.users.index')}}">
                                 <i class="nav-icon fas fa-eye"></i>
                                 <p>All Users</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin.users.create')}}"
-                               class ="{{request()->is('admin/users/create') ? 'nav-link active' : 'nav-link'}}">
+                               class ="{{setActiveRoute('admin.users.create')}}">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>Create New User</p>
                             </a>

@@ -4,10 +4,27 @@ namespace App\Http\Requests;
 
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Routing\Route;
 use Illuminate\Validation\Rule;
 
 class SaveUserRequest extends FormRequest
 {
+    /**
+     * @var Route
+     */
+    private $route;
+
+
+    /**
+     * SaveUserRequest constructor.
+     * @param Route $route
+     */
+    public function __construct(Route $route)
+    {
+        $this->route = $route;
+    }
+
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -18,9 +35,8 @@ class SaveUserRequest extends FormRequest
         return true;
     }
 
+
     /**
-     * Get the validation rules that apply to the request.
-     *
      * @return array
      */
     public function rules()
@@ -29,13 +45,29 @@ class SaveUserRequest extends FormRequest
             'name'=> ['required','string', 'max:255','min:3'],
             'username' => ['required','string', 'max:255','min:3',Rule::unique('users')],
             'email' => ['required','string', 'email', 'max:255',Rule::unique('users')],
-            'password'=> ['required', 'string', 'min:8']
         ];
 
-        if ($this->method() === 'PUT') {
-            $rules['password'] = ['sometimes'];
+        if ($this->method() === 'POST') {
+            $rules['password'] = ['required', 'string', 'min:6'];
         }
 
+        if ($this->method() === 'PUT') {
+            $rules['username'] = ['required',
+                'string',
+                'max:255',
+                'min:3',
+                Rule::unique('users')->ignore($this->route('user')->id)
+            ];
+            $rules['email'] = ['required',
+                'string',
+                'email',
+                'max:255',Rule::unique('users')->ignore($this->route('user')->id)
+            ];
+
+            if($this->filled('password')){
+                $rules['password'] = ['confirmed','min:6'];
+            }
+        }
         return $rules;
     }
 
@@ -43,9 +75,19 @@ class SaveUserRequest extends FormRequest
     {
         return User::create($this->all());
     }
+
     public function updateUser($user)
     {
-        $user->update($this->all());
-        return $user;
+        $user->fill([
+            'name' => $this->name,
+            'username' => $this->username,
+            'email' => $this->email,
+        ]);
+
+        if ($this->password != null) {
+            $user->password = $this->password;
+        }
+
+        $user->save();
     }
 }

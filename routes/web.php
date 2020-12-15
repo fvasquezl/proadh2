@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\CarController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\UsersPermissionsController;
+use App\Http\Controllers\Admin\UsersRolesController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +30,10 @@ Route::prefix('admin')
     ->group(function(){
          Route::resource('cars',
              CarController::class);
+
+         Route::put('/users/{user}/roles',[UsersRolesController::class,'update'])->name('users.roles.update');
+         Route::put('/users/{user}/permissions',[UsersPermissionsController::class,'update'])->name('users.permissions.update');
+
          Route::resource('users',
              UserController::class);
       // Route::get('users', [UserController::class, 'index'])->name('admin.users.index');
