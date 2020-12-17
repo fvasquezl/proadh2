@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Events\UserWasCreated;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Routing\Route;
@@ -44,14 +45,10 @@ class SaveUserRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name'=> ['required','string', 'max:255','min:3'],
-            'username' => ['required','string', 'max:255','min:3',Rule::unique('users')],
-            'email' => ['required','string', 'email', 'max:255',Rule::unique('users')],
+            'name' => ['required', 'string', 'max:255', 'min:3'],
+            'username' => ['required', 'string', 'max:255', 'min:3', Rule::unique('users')],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')],
         ];
-
-        if ($this->method() === 'POST') {
-            $rules['password'] = ['required','min:6'];;
-        }
 
         if ($this->method() === 'PUT') {
             $rules['username'] = ['required',
@@ -63,23 +60,27 @@ class SaveUserRequest extends FormRequest
             $rules['email'] = ['required',
                 'string',
                 'email',
-                'max:255',Rule::unique('users')->ignore($this->route('user')->id)
+                'max:255', Rule::unique('users')->ignore($this->route('user')->id)
             ];
 
-            if($this->filled('password')){
-                $rules['password'] = ['confirmed','min:6'];
+            if ($this->filled('password')) {
+                $rules['password'] = ['confirmed', 'min:6'];
             }
         }
         return $rules;
     }
 
-//    public function createUser()
-//    {
-//         $user = User::create($this->all());
-//         $user->assignRole($this->roles);
-//        $user->givePermissionTo($this->permissions);
-//
-//    }
+    public function createUser()
+    {
+        $password =$this['password'] = Str::random(8);
+        $user = User::create($this->all());
+        $user->assignRole($this->roles);
+        $user->givePermissionTo($this->permissions);
+
+        UserWasCreated::dispatch($user,$password);
+
+
+    }
 
     public function updateUser($user)
     {

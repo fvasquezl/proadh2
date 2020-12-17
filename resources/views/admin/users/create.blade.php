@@ -17,13 +17,12 @@
 @endsection
 
 @section('content')
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <div class="row">
-        @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>
-        @endif
-
         <div class="col-md-6">
             <div class="card card-outline card-success">
                 <div class="card-header">
@@ -96,7 +95,7 @@
 
 @push('scripts')
     <script>
-        $(document).ready(function () {
+        $(function () {
             $(".alert").delay(2000).slideUp(300);
         });
     </script>

@@ -10,8 +10,6 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -36,20 +34,16 @@ class UserController extends Controller
         $this->authorize('create', new User());
         $user = new User;
         $roles = Role::with('permissions')->get();
-        $permissions = Permission::pluck('name','id');
-        return view('admin.users.create',compact('user','roles','permissions'));
+        $permissions = Permission::pluck('name', 'id');
+        return view('admin.users.create', compact('user', 'roles', 'permissions'));
     }
 
 
     public function store(SaveUserRequest $request)
     {
-      //  $this->authorize('create', new User);
-        $request['password'] = Str::random(8);
-
-        dd($request->all());
-       // $request->createUser();
-
-        return redirect()->back()->with('status','The user has been created successfully');
+        $this->authorize('create', new User);
+        $request->createUser();
+        return redirect()->back()->with('status', 'The user has been created successfully');
     }
 
 
@@ -74,8 +68,8 @@ class UserController extends Controller
         $this->authorize('update', $user);
 
         $roles = Role::with('permissions')->get();
-        $permissions = Permission::pluck('name','id');
-        return view('admin.users.edit',compact('user','roles','permissions'));
+        $permissions = Permission::pluck('name', 'id');
+        return view('admin.users.edit', compact('user', 'roles', 'permissions'));
     }
 
 
@@ -87,17 +81,17 @@ class UserController extends Controller
      */
     public function update(SaveUserRequest $request, User $user)
     {
-        $this->authorize('update',$user);
+        $this->authorize('update', $user);
 
         $request->updateUser($user);
 
-        return redirect()->back()->with('status','The User has been updated successfully');
+        return redirect()->back()->with('status', 'The User has been updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
