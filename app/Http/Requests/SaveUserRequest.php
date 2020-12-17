@@ -5,7 +5,9 @@ namespace App\Http\Requests;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+
 
 class SaveUserRequest extends FormRequest
 {
@@ -48,7 +50,7 @@ class SaveUserRequest extends FormRequest
         ];
 
         if ($this->method() === 'POST') {
-            $rules['password'] = ['required', 'string', 'min:6'];
+            $rules['password'] = ['required','min:6'];;
         }
 
         if ($this->method() === 'PUT') {
@@ -71,10 +73,13 @@ class SaveUserRequest extends FormRequest
         return $rules;
     }
 
-    public function createUser()
-    {
-        return User::create($this->all());
-    }
+//    public function createUser()
+//    {
+//         $user = User::create($this->all());
+//         $user->assignRole($this->roles);
+//        $user->givePermissionTo($this->permissions);
+//
+//    }
 
     public function updateUser($user)
     {
@@ -90,4 +95,5 @@ class SaveUserRequest extends FormRequest
 
         $user->save();
     }
+
 }

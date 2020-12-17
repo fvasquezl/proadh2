@@ -21,10 +21,20 @@
         <div class="row">
             <div class="col-12">
                 <div class="card card-outline card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">All Users</h3>
+                        <div class="card-tools">
+                            <a href="{{ route('admin.users.create') }}" class="btn btn-primary">
+                                <i class="fa fa-plus"></i>
+                                Crear Usuario
+                            </a>
+                        </div>
+                    </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         {!! $dataTable->table(['class' => 'table table-striped table-bordered table-hover', 'id' => 'CarTable']) !!}
                     </div>
+
                     <!-- /.card-body -->
                 </div>
             </div>

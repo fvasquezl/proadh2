@@ -11,6 +11,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -33,17 +34,22 @@ class UserController extends Controller
     public function create()
     {
         $this->authorize('create', new User());
-        return view('admin.users.create');
+        $user = new User;
+        $roles = Role::with('permissions')->get();
+        $permissions = Permission::pluck('name','id');
+        return view('admin.users.create',compact('user','roles','permissions'));
     }
 
 
     public function store(SaveUserRequest $request)
     {
-        $this->authorize('create', new User);
+      //  $this->authorize('create', new User);
+        $request['password'] = Str::random(8);
 
-        $request->createUser();
+        dd($request->all());
+       // $request->createUser();
 
-        return redirect()->back();
+        return redirect()->back()->with('status','The user has been created successfully');
     }
 
 
@@ -85,7 +91,7 @@ class UserController extends Controller
 
         $request->updateUser($user);
 
-        return redirect()->back()->with('status','Users updated successfully');
+        return redirect()->back()->with('status','The User has been updated successfully');
     }
 
     /**
