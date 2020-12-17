@@ -22,10 +22,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('email',function (){
-    return new \App\Mail\LoginCredentials(App\Models\User::first(), '1234qwer');
-});
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')

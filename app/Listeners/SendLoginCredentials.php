@@ -22,6 +22,5 @@ class SendLoginCredentials
         Mail::to($event->user)->queue(
             new Logincredentials($event->user,$event->password)
         );
-        dd($event->user->toArray(),$event->password);
     }
 }
