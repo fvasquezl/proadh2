@@ -20,7 +20,7 @@ class UserPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\Models\User  $user
+     * @param User $user
      * @return mixed
      */
     public function viewAny(User $user)
@@ -31,61 +31,61 @@ class UserPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Car  $car
+     * @param User $authUser
+     * @param User $user
      * @return mixed
      */
-    public function view(User $user, Car $car)
+    public function view(User $authUser, User $user)
     {
-        return $user->id === $car->user_id
-            || $user->hasPermissionTo('View cars');
+        return $authUser->id === $user->id
+            || $user->hasPermissionTo('View users');
     }
 
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\Models\User  $user
+     * @param User $user
      * @return mixed
      */
     public function create(User $user)
     {
-        return $user->hasPermissionTo('Create cars');
+        return $user->hasPermissionTo('Create users');
     }
 
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Car  $car
+     * @param User $authUser
+     * @param User $user
      * @return mixed
      */
-    public function update(User $user, Car $car)
+    public function update(User $authUser, User $user)
     {
-        return $user->id === $car->user_id
-            || $user->hasPermissionTo('Update cars');
+        return $authUser->id === $user->id
+            || $user->hasPermissionTo('Update users');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Car  $car
+     * @param User $authUser
+     * @param User $user
      * @return mixed
      */
-    public function delete(User $user, Car $car)
+    public function delete(User $authUser, User $user)
     {
-        return $user->id === $car->user_id
-            || $user->hasPermissionTo('Delete cars');
+        return $authUser->id === $user->id
+            || $user->hasPermissionTo('Delete users');
     }
 
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Car  $car
+     * @param User $authUser
+     * @param User $user
      * @return mixed
      */
-    public function restore(User $user, Car $car)
+    public function restore(User $authUser, User $user)
     {
         //
     }
@@ -93,11 +93,11 @@ class UserPolicy
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Car  $car
+     * @param User $authUser
+     * @param User $user
      * @return mixed
      */
-    public function forceDelete(User $user, Car $car)
+    public function forceDelete(User $authUser, User $user)
     {
         //
     }

@@ -32,12 +32,12 @@ class UsersDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\User $model
+     * @param \App\Models\User $user
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model)
+    public function query(User $user)
     {
-        return $model->newQuery();
+        return $user->allowed()->newQuery();
     }
 
     /**
@@ -105,6 +105,9 @@ class UsersDataTable extends DataTable
     {
         $showUrl = route('admin.users.show', $data->id);
         $editUrl = route('admin.users.edit', $data->id);
+        $deleteUrl = route('admin.users.destroy', $data->id);
+        $csrf = csrf_field();
+        $method_delete = method_field('DELETE');
 
         return "<a data-value='$data->id' href='$showUrl' class='btn btn-info btn-xs'>
                     <i class='far fa-eye'></i>
@@ -112,8 +115,14 @@ class UsersDataTable extends DataTable
                  <a data-value='$data->id' href='$editUrl' class='btn btn-primary btn-xs'>
                     <i class='fas fa-pen'></i>
                  </a>
-                 <button class='btn btn-danger btn-xs' data-value='$data->id' >
-                    <i class='fas fa-trash'>
-                 </button>";
+                  <form action='$deleteUrl'
+                        method='POST'
+                        style='display:inline'>
+                        {$csrf}{$method_delete}
+                        <button class='btn btn-xs btn-danger'>
+                            <i class='fas fa-trash-alt'></i>
+                        </button>
+                  </form>
+                ";
     }
 }

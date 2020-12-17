@@ -27,6 +27,11 @@ class UserTableSeeder extends Seeder
         $updateCarsPermissions = Permission::create(['name'=> 'Update cars']);
         $deleteCarsPermissions = Permission::create(['name'=> 'Delete cars']);
 
+        $viewUsersPermissions = Permission::create(['name'=> 'View users']);
+        $createUsersPermissions = Permission::create(['name'=> 'Create users']);
+        $updateUsersPermissions = Permission::create(['name'=> 'Update users']);
+        $deleteUsersPermissions = Permission::create(['name'=> 'Delete users']);
+
         $admin = User::factory()->create([
             'name' => 'Faustino Vasquez Limon',
             'username' => 'fvasquez',

@@ -31,8 +31,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $this->authorize('create', new User());
         $user = new User;
+        $this->authorize('create', $user);
         $roles = Role::with('permissions')->get();
         $permissions = Permission::pluck('name', 'id');
         return view('admin.users.create', compact('user', 'roles', 'permissions'));
@@ -53,7 +53,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $this->authorize('update', $user);
+        $this->authorize('view', $user);
         return view('admin.users.show', compact('user'));
     }
 
@@ -85,17 +85,21 @@ class UserController extends Controller
 
         $request->updateUser($user);
 
-        return redirect()->back()->with('status', 'The User has been updated successfully');
+        return redirect()->route('admin.users.edit',$user)
+            ->with('status', 'The User has been updated successfully');
     }
 
+
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws AuthorizationException
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        $this->authorize('delete', new User);
+        $this->authorize('delete', $user);
+        $user->delete();
+        return redirect()->route('admin.users.index')
+            ->with('status', 'The User has been delete successfully');
     }
 }
